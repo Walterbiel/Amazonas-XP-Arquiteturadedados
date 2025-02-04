@@ -108,6 +108,7 @@ Se optar por usar DynamoDB, as tabelas serão estruturadas com chaves de partiç
 
 ## 5. Modelo Hackolade
 O modelo será desenhado na ferramenta **Hackolade** utilizando o template do **MongoDB**, garantindo uma visualização estruturada do esquema de dados.
+![image](https://github.com/user-attachments/assets/37a8f445-4476-4323-aaea-7c64476d08d0)
 
 ---
 
