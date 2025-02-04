@@ -15,7 +15,8 @@
 - Python  
 - AWS  
 
-**Repositório do Projeto:** [GitHub](https://github.com/Walterbiel/Amazonas-XP-Arquiteturadedados)
+![image](https://github.com/user-attachments/assets/90080559-8301-44dd-b4be-75f2b43e23b8)
+
 
 ---
 
@@ -111,9 +112,89 @@ O modelo será desenhado na ferramenta **Hackolade** utilizando o template do **
 ---
 
 ## 6. Explicação do Projeto Prático
-A implementação do projeto será documentada e detalhada, abordando desde a modelagem inicial até a implantação final na AWS, garantindo um ambiente funcional e escalável para o e-commerce **Amazonas**.
+------------------------------------------------------------------------------------------------------
+Digite no bash os sequintes comandos para criar uma network, um volume para persistencia dos dados e o container com a imgaem do mongodb:
 
----
+$ docker volume create vol1
 
-Este documento serve como guia para a arquitetura de dados do projeto e-commerce **Amazonas LTDA**, facilitando a implementação e manutenção do sistema.
+$ docker network create net1
+
+$ docker run -d --network net1 -h mongo --name mongo -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret -p 27017:27017 -v vol1/data/db mongo
+
+
+Assim seu container será criado:
+![image](https://github.com/user-attachments/assets/b389a4c3-5a7e-4a7b-a3cb-04e992199c3d)
+
+
+Baixe o mongodb compass para visualizar em interface gráfica os bancos, coleções e documentos: https://www.mongodb.com/products/tools/compass
+Agora é encessário conectar o mangodb que está na porta 27017 como configurado no docker, no mongodb compass: mongodb://mongoadmin:secret@localhost:27017
+![image](https://github.com/user-attachments/assets/9e5d09a7-4143-4b30-b0b7-7157db6d81ea)
+
+Agora é possível visualizar o banco de dados:
+![image](https://github.com/user-attachments/assets/7e6ef45b-1400-4450-bd1c-b320041d247c)
+
+Com nosso arquivo “event-producer.py” vamos gerar dados fake e aleatórios para inputar no banco de dados NoSQL utilizando a biblioteca do pymongo:
+![image](https://github.com/user-attachments/assets/7cb23506-e03f-42c4-aebc-d71958c335e4)
+
+Podemos ver as coleções criadas e os documentos inseridos pelo mongodb compass:
+![image](https://github.com/user-attachments/assets/41df1480-173f-4a5a-a7c1-59bb6ec4da0a)
+![image](https://github.com/user-attachments/assets/01e8ea5c-746f-451a-824e-ab96fec814f8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Agora é possível visualizar o banco de dados:
+
+
+Com nosso arquivo “event-producer.py” vamos gerar dados fake e aleatórios para inputar no banco de dados NoSQL utilizando a biblioteca do pymongo:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Podemos ver as coleções criadas e os documentos inseridos pelo mongodb compass:
+
+
+
+
 
